@@ -16,8 +16,12 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name" translatable="false">OmniJaws</string>
     <string name="provider_title">天气来源</string>
     <string name="units_title">单位</string>
+    <string name="provider_openweathermap" translatable="false">OpenWeatherMap</string>
+    <string name="provider_metnorway" translatable="false">MET Norway</string>
     <string name="weather_progress_title">验证位置</string>
     <string name="weather_select_location">选择位置</string>
     <string name="custom_location_title">自定义位置</string>
@@ -45,8 +49,11 @@
     <string name="service_disabled">禁用</string>
     <string name="service_error">错误</string>
     <string name="last_update_time">最后更新时间</string>
+    <string name="omnijaws_service_waiting">等待 \u2026</string>
     <string name="omnijaws_service_unkown">没有天气数据</string>
     <string name="omnijaws_service_error">读取天气数据错误</string>
+    <string name="omnijaws_service_init">等待 \u2026</string>
+    <string name="omnijaws_service_progress">更新中 \u2026</string>
     <string name="omnijaws_service_disabled">服务已禁用</string>
     <string name="weather_widget">天气</string>
     <string name="omnijaws_current_text">现在</string>
@@ -55,4 +62,52 @@
     <string name="with_forecast_title">4 天的预测和详细信息</string>
     <string name="owm_key">自定义OWM密钥</string>
     <string name="omnijaws_city_unkown">未知</string>
+    <string name="activity_title">天气</string>
+    <string name="omnijaws_service_error_long">加载天气数据出错</string>
+    <string name="omnijaws_detail_header">天气</string>
+    <string name="omnijaws_label_default">天气</string>
+    <string name="omnijaws_service_last_update">最后更新：</string>
+    <string name="omnijaws_service_error_location">无可用位置</string>
+    <string name="omnijaws_service_error_network">未找到网络</string>
+    <string name="weather_widget_desc">当前天气和4天预报</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_dark">深色</string>
+    <string name="theme_light">浅色</string>
+    <string name="color_theme_title">主题</string>
+    <string name="bg_transparency_title">透明度</string>
+    <string name="trans_semi">半透明</string>
+    <string name="trans_full">透明</string>
+    <string name="trans_solid">实色</string>
+    <string name="search_location_title">搜索位置</string>
+    <string name="location_browse_activity_title">选择位置</string>
+    <string name="location_query_hint">搜索位置</string>
+    <string name="weather_settings_title">天气设置</string>
+    <string name="enable_weather_service_title">启用天气服务</string>
+    <string name="general_title">通用</string>
+    <string name="weather_provider_title">天气提供方</string>
+    <string name="temperature_unit_title">温度单位</string>
+
+    <string-array name="update_interval_options_values">
+      <item>1</item>
+      <item>2</item>
+      <item>4</item>
+      <item>6</item>
+      <item>12</item>
+    </string-array>
+
+    <string-array name="update_interval_options_labels">
+      <item>1 小时</item>
+      <item>2 小时</item>
+      <item>4 小时</item>
+      <item>6 小时</item>
+      <item>12 小时</item>
+    </string-array>
+    <string name="last_update_title">最后更新</string>
+    <string name="location_title">位置</string>
+    <string name="custom_location_summary">使用手动选择的位置</string>
+    <string name="not_set_summary">未设置</string>
+    <string name="grant_location_permission_title">授予位置权限</string>
+    <string name="grant_location_permission_summary">自动定位需要此权限</string>
+    <string name="appearance_title">外观</string>
+    <string name="icon_pack_title">图标包</string>
 </resources>

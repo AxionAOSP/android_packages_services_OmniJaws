@@ -123,7 +123,7 @@ private fun LocationPickerScreen(
     var searchJob by remember { mutableStateOf<Job?>(null) }
 
     AxionScaffold(
-        title = "Search location",
+        title = stringResource(R.search_location_title,
         onBackClick = onBack
     ) { padding ->
         Column(

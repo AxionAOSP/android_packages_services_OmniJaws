@@ -80,6 +80,36 @@
     <string name="trans_semi">Semi-transparent</string>
     <string name="trans_full">Transparent</string>
     <string name="trans_solid">Solid</string>
+    <string name="search_location_title">Search location</string>
     <string name="location_browse_activity_title">Select location</string>
     <string name="location_query_hint">Search for a location</string>
+    <string name="weather_settings_title">Weather settings</string>
+    <string name="enable_weather_service_title">Enable weather service</string>
+    <string name="general_title">General</string>
+    <string name="weather_provider_title">Weather provider</string>
+    <string name="temperature_unit_title">Temperature unit</string>
+
+    <string-array name="update_interval_options_values">
+      <item>1</item>
+      <item>2</item>
+      <item>4</item>
+      <item>6</item>
+      <item>12</item>
+    </string-array>
+
+    <string-array name="update_interval_options_labels">
+      <item>1 hour</item>
+      <item>2 hour</item>
+      <item>4 hour</item>
+      <item>6 hour</item>
+      <item>12 hour</item>
+    </string-array>
+    <string name="last_update_title">Last update</string>
+    <string name="location_title">Location</string>
+    <string name="custom_location_summary">Use a manually selected location</string>
+    <string name="not_set_summary">Not set</string>
+    <string name="grant_location_permission_title">Grant location permission</string>
+    <string name="grant_location_permission_summary">Required for automatic location</string>
+    <string name="appearance_title">Appearance</string>
+    <string name="icon_pack_title">Icon pack</string>
 </resources>
