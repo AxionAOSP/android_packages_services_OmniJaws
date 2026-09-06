@@ -47,6 +47,8 @@ import com.android.internal.util.android.OmniJawsClient
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.ui.res.stringResource
+import org.omnirom.omnijaws.R
 
 @Composable
 fun HourlyForecastCard(
@@ -67,7 +69,7 @@ fun HourlyForecastCard(
     ) {
         Column(modifier = Modifier.padding(top = 16.dp, bottom = 8.dp)) {
             Text(
-                text = "Hourly forecast",
+                text = stringResource(R.string.hourly_forecast),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(horizontal = 20.dp)

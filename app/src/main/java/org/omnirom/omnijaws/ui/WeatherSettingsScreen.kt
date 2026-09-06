@@ -46,6 +46,8 @@ import com.android.axion.compose.preferences.SwitchPreference
 import com.android.axion.compose.scaffold.AxionScaffold
 
 import org.omnirom.omnijaws.icon.IconProvider
+import androidx.compose.ui.res.stringResource
+import org.omnirom.omnijaws.R
 
 @Composable
 fun WeatherSettingsScreen(
@@ -63,7 +65,7 @@ fun WeatherSettingsScreen(
     onRequestLocationPermission: () -> Unit
 ) {
     AxionScaffold(
-        title = "Weather settings",
+        title = stringResource(R.string.weather_settings_title),
         onBackClick = onBack
     ) { padding ->
         Column(
@@ -77,7 +79,7 @@ fun WeatherSettingsScreen(
             PreferenceGroup {
                 item {
                     SwitchPreference(
-                        title = "Enable weather service",
+                        title = stringResource(R.string.enable_weather_service_title),
                         checked = state.enabled,
                         onCheckedChange = onEnableChanged,
                         icon = Icons.Outlined.Cloud
@@ -86,10 +88,10 @@ fun WeatherSettingsScreen(
             }
 
             if (state.enabled) {
-                PreferenceGroup(title = "General") {
+                PreferenceGroup(title = stringResource(R.string.general_title)) {
                     item {
                         ListPreference(
-                            title = "Weather provider",
+                            title = stringResource(R.string.weather_provider_title),
                             summary = state.providerLabel,
                             options = listOf("0" to "OpenWeatherMap", "1" to "MET Norway"),
                             value = state.provider,
@@ -98,7 +100,7 @@ fun WeatherSettingsScreen(
                     }
                     item {
                         ListPreference(
-                            title = "Temperature unit",
+                            title = stringResource(R.string.temperature_unit_title),
                             summary = state.unitsLabel,
                             options = listOf("0" to "Metric (\u00b0C)", "1" to "Imperial (\u00b0F)"),
                             value = state.units,
@@ -107,7 +109,7 @@ fun WeatherSettingsScreen(
                     }
                     item {
                         ListPreference(
-                            title = "Update interval",
+                            title = stringResource(R.string.update_interval_title),
                             summary = state.intervalLabel,
                             options = listOf(
                                 "1" to "1 hour",
@@ -122,19 +124,19 @@ fun WeatherSettingsScreen(
                     }
                     item {
                         ClickablePreference(
-                            title = "Last update",
-                            summary = state.lastUpdateTime.ifEmpty { "Never" },
+                            title = stringResource(R.string.last_update_title),
+                            summary = state.lastUpdateTime.ifEmpty { stringResource(R.string.never_summary) },
                             icon = Icons.Outlined.Update,
                             onClick = {}
                         )
                     }
                 }
 
-                PreferenceGroup(title = "Location") {
+                PreferenceGroup(title = stringResource(R.string.location_group_title)) {
                     item {
                         SwitchPreference(
-                            title = "Custom location",
-                            summary = "Use a manually selected location",
+                            title = stringResource(R.string.custom_location_title),
+                            summary = stringResource(R.string.custom_location_summary),
                             checked = state.customLocation,
                             onCheckedChange = onCustomLocationChanged,
                             icon = Icons.Outlined.MyLocation
@@ -143,8 +145,8 @@ fun WeatherSettingsScreen(
                     if (state.customLocation) {
                         item {
                             ClickablePreference(
-                                title = "Location",
-                                summary = state.locationName.ifEmpty { "Not set" },
+                                title = stringResource(R.string.location_title),
+                                summary = state.locationName.ifEmpty { stringResource(R.string.location_summary_not_set) },
                                 icon = Icons.Outlined.LocationOn,
                                 onClick = onLocationPickerClick
                             )
@@ -153,8 +155,8 @@ fun WeatherSettingsScreen(
                     if (!state.customLocation && !state.hasLocationPermission) {
                         item {
                             ClickablePreference(
-                                title = "Grant location permission",
-                                summary = "Required for automatic location",
+                                title = stringResource(R.string.grant_permission_title),
+                                summary = stringResource(R.string.grant_permission_summary),
                                 icon = Icons.Outlined.Security,
                                 onClick = onRequestLocationPermission
                             )
@@ -163,10 +165,10 @@ fun WeatherSettingsScreen(
                 }
 
                 if (state.iconPacks.isNotEmpty()) {
-                    PreferenceGroup(title = "Appearance") {
+                    PreferenceGroup(title = stringResource(R.string.appearance_group_title)) {
                         item {
                             ListPreference(
-                                title = "Icon pack",
+                                title = stringResource(R.string.icon_pack_title),
                                 summary = state.iconPacks.firstOrNull { it.value == state.iconPack }?.label,
                                 options = state.iconPacks.map { it.value to it.label },
                                 value = state.iconPack,
@@ -176,12 +178,12 @@ fun WeatherSettingsScreen(
                         if (state.iconPackSupportsTheming) {
                             item {
                                 ListPreference(
-                                    title = "Icon theme",
+                                    title = stringResource(R.string.icon_theme_title),
                                     summary = state.iconThemeLabel,
                                     options = listOf(
-                                        IconProvider.ICON_THEME_SYSTEM.toString() to "Follow system",
-                                        IconProvider.ICON_THEME_LIGHT.toString() to "Light",
-                                        IconProvider.ICON_THEME_DARK.toString() to "Dark"
+                                        IconProvider.ICON_THEME_SYSTEM.toString() to stringResource(R.string.icon_theme_system),
+                                        IconProvider.ICON_THEME_LIGHT.toString() to stringResource(R.string.icon_theme_light),
+                                        IconProvider.ICON_THEME_DARK.toString() to stringResource(R.string.icon_theme_dark)
                                     ),
                                     value = state.iconTheme,
                                     onValueChange = onIconThemeChanged
@@ -192,10 +194,10 @@ fun WeatherSettingsScreen(
                 }
 
                 if (state.provider == "0") {
-                    PreferenceGroup(title = "API") {
+                    PreferenceGroup(title = stringResource(R.string.api_group_title)) {
                         item {
                             EditTextPreference(
-                                title = "OpenWeatherMap API key",
+                                title = stringResource(R.string.owm_api_key_title),
                                 value = state.owmKey,
                                 onValueChange = onOwmKeyChanged
                             )
@@ -218,7 +220,7 @@ private fun EditTextPreference(
 
     ClickablePreference(
         title = title,
-        summary = value.ifEmpty { "Not set" },
+        summary = value.ifEmpty { stringResource(R.string.not_set) },
         icon = Icons.Outlined.Key,
         onClick = { showDialog = true }
     )
@@ -240,12 +242,12 @@ private fun EditTextPreference(
                     onValueChange(textValue)
                     showDialog = false
                 }) {
-                    Text("Save")
+                    Text(stringResource(R.string.save))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDialog = false }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )

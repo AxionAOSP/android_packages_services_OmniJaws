@@ -74,6 +74,8 @@ import org.omnirom.omnijaws.ui.components.DailyForecastCard
 import org.omnirom.omnijaws.ui.components.DetailCardsGrid
 import org.omnirom.omnijaws.ui.components.DrawablePainter
 import org.omnirom.omnijaws.ui.components.HourlyForecastCard
+import androidx.compose.ui.res.stringResource
+import org.omnirom.omnijaws.R
 
 @Composable
 fun WeatherDashboardScreen(
@@ -140,13 +142,13 @@ fun WeatherDashboardScreen(
                         ) {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
-                                    text = "Weather data unavailable",
+                                    text = stringResource(R.string.weather_unavailable),
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Text(
-                                    text = "Check settings or try refreshing",
+                                    text = stringResource(R.string.check_settings_or_refresh),
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.outline
                                 )
@@ -159,7 +161,7 @@ fun WeatherDashboardScreen(
                                             modifier = Modifier.size(18.dp)
                                         )
                                         Spacer(modifier = Modifier.width(8.dp))
-                                        Text("Refresh")
+                                        Text(stringResource(R.string.refresh))
                                     }
                                     FilledTonalButton(onClick = onSettingsClick) {
                                         Icon(
@@ -168,7 +170,7 @@ fun WeatherDashboardScreen(
                                             modifier = Modifier.size(18.dp)
                                         )
                                         Spacer(modifier = Modifier.width(8.dp))
-                                        Text("Settings")
+                                        Text(stringResource(R.string.settings))
                                     }
                                 }
                             }
@@ -201,7 +203,7 @@ private fun DrawerContent(
     ) {
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "Weather",
+            text = stringResource(R.string.weather),
             style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier.padding(horizontal = 28.dp, vertical = 16.dp)
         )
@@ -219,14 +221,14 @@ private fun DrawerContent(
 
         NavigationDrawerItem(
             icon = { Icon(Icons.Outlined.MyLocation, contentDescription = null) },
-            label = { Text("Location") },
+            label = { Text(stringResource(R.string.location)) },
             selected = false,
             onClick = onLocationClick,
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
         )
         NavigationDrawerItem(
             icon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
-            label = { Text("Settings") },
+            label = { Text(stringResource(R.string.settings)) },
             selected = false,
             onClick = onSettingsClick,
             modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
@@ -294,7 +296,10 @@ private fun WeatherContent(
         item {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Weather data provided by ${weather.provider ?: ""}",
+                text = stringResource(
+                    R.string.weather_data_provided_by,
+                    weather.provider ?: ""
+            ),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier
@@ -321,7 +326,7 @@ private fun TopBar(
         IconButton(onClick = onMenuClick) {
             Icon(
                 imageVector = Icons.Outlined.Menu,
-                contentDescription = "Menu"
+                contentDescription = stringResource(R.string.menu)
             )
         }
         Spacer(modifier = Modifier.weight(1f))
@@ -343,13 +348,13 @@ private fun TopBar(
         IconButton(onClick = onRefreshClick) {
             Icon(
                 imageVector = Icons.Outlined.Refresh,
-                contentDescription = "Refresh"
+                contentDescription = stringResource(R.string.refresh)
             )
         }
         IconButton(onClick = onSettingsClick) {
             Icon(
                 imageVector = Icons.Outlined.Settings,
-                contentDescription = "Settings"
+                contentDescription = stringResource(R.string.settings)
             )
         }
     }
@@ -408,7 +413,7 @@ private fun WeatherSummaryRow(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
                             imageVector = Icons.Outlined.ArrowDownward,
-                            contentDescription = "Low",
+                            contentDescription = stringResource(R.string.low),
                             modifier = Modifier.size(14.dp),
                             tint = MaterialTheme.colorScheme.primary
                         )
@@ -420,7 +425,7 @@ private fun WeatherSummaryRow(
                         Spacer(modifier = Modifier.width(8.dp))
                         Icon(
                             imageVector = Icons.Outlined.ArrowUpward,
-                            contentDescription = "High",
+                            contentDescription = stringResource(R.string.high),
                             modifier = Modifier.size(14.dp),
                             tint = MaterialTheme.colorScheme.error
                         )

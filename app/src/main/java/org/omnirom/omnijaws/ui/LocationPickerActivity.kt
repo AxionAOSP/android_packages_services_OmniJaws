@@ -65,6 +65,8 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import org.omnirom.omnijaws.NetworkUtils
 import java.util.Locale
+import androidx.compose.ui.res.stringResource
+import org.omnirom.omnijaws.R
 
 class LocationPickerActivity : ComponentActivity() {
 
@@ -123,7 +125,7 @@ private fun LocationPickerScreen(
     var searchJob by remember { mutableStateOf<Job?>(null) }
 
     AxionScaffold(
-        title = "Search location",
+        title = stringResource(R.string.search_location_title),
         onBackClick = onBack
     ) { padding ->
         Column(
@@ -155,7 +157,7 @@ private fun LocationPickerScreen(
                         onSearch = {},
                         expanded = false,
                         onExpandedChange = {},
-                        placeholder = { Text("City name") },
+                        placeholder = { Text(stringResource(R.string.search_city_placeholder)) },
                         leadingIcon = {
                             Icon(Icons.Outlined.Search, contentDescription = null)
                         }

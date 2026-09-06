@@ -61,6 +61,8 @@ import java.util.Locale
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
+import androidx.compose.ui.res.stringResource
+import org.omnirom.omnijaws.R
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -176,7 +178,7 @@ private fun DetailCard(
 private fun FeelsLikeCard(feelsLike: Float, tempUnits: String, modifier: Modifier) {
     DetailCard(
         icon = Icons.Outlined.DeviceThermostat,
-        title = "Feels like",
+        title = stringResource(R.string.feels_like),
         modifier = modifier
     ) {
         Text(
@@ -190,19 +192,17 @@ private fun FeelsLikeCard(feelsLike: Float, tempUnits: String, modifier: Modifie
 
 @Composable
 private fun UvIndexCard(uvi: Float, modifier: Modifier) {
-    val level = remember(uvi) {
-        when {
-            uvi <= 2 -> "Low"
-            uvi <= 5 -> "Moderate"
-            uvi <= 7 -> "High"
-            uvi <= 10 -> "Very High"
-            else -> "Extreme"
-        }
+    val level = when {
+        uvi <= 2 -> stringResource(R.string.uv_index_low)
+        uvi <= 5 -> stringResource(R.string.uv_index_moderate)
+        uvi <= 7 -> stringResource(R.string.uv_index_high)
+        uvi <= 10 -> stringResource(R.string.uv_index_very_high)
+        else -> stringResource(R.string.uv_index_extreme)
     }
 
     DetailCard(
         icon = Icons.Outlined.WbSunny,
-        title = "UV index",
+        title = stringResource(R.string.uv_index),
         modifier = modifier
     ) {
         Text(
@@ -254,7 +254,7 @@ private fun UvBar(uvi: Float, modifier: Modifier) {
 private fun HumidityCard(humidity: String, modifier: Modifier) {
     DetailCard(
         icon = Icons.Outlined.WaterDrop,
-        title = "Humidity",
+        title = stringResource(R.string.humidity),
         modifier = modifier
     ) {
         Text(
@@ -276,7 +276,7 @@ private fun WindCard(
 ) {
     DetailCard(
         icon = Icons.Outlined.Air,
-        title = "Wind",
+        title = stringResource(R.string.wind),
         modifier = modifier
     ) {
         Text(
@@ -340,7 +340,7 @@ private fun WindCompass(degrees: Int, modifier: Modifier) {
 private fun PressureCard(pressure: Float, modifier: Modifier) {
     DetailCard(
         icon = Icons.Outlined.Compress,
-        title = "Pressure",
+        title = stringResource(R.string.pressure_title),
         modifier = modifier
     ) {
         Text(
@@ -350,7 +350,7 @@ private fun PressureCard(pressure: Float, modifier: Modifier) {
             color = MaterialTheme.colorScheme.onSurface
         )
         Text(
-            text = "hPa",
+            text = stringResource(R.string.pressure_unit),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -359,18 +359,16 @@ private fun PressureCard(pressure: Float, modifier: Modifier) {
 
 @Composable
 private fun VisibilityCard(visibility: Float, modifier: Modifier) {
-    val level = remember(visibility) {
-        when {
-            visibility >= 10 -> "Clear"
-            visibility >= 4 -> "Good"
-            visibility >= 1 -> "Moderate"
-            else -> "Poor"
-        }
+    val level = when {
+        visibility >= 10 -> stringResource(R.string.visibility_clear)
+        visibility >= 4 -> stringResource(R.string.visibility_good)
+        visibility >= 1 -> stringResource(R.string.visibility_moderate)
+        else -> stringResource(R.string.visibility_poor)
     }
 
     DetailCard(
         icon = Icons.Outlined.Visibility,
-        title = "Visibility",
+        title = stringResource(R.string.visibility_title),
         modifier = modifier
     ) {
         Text(
@@ -380,7 +378,7 @@ private fun VisibilityCard(visibility: Float, modifier: Modifier) {
             color = MaterialTheme.colorScheme.onSurface
         )
         Text(
-            text = "km · $level",
+            text = "${stringResource(R.string.visibility_unit)} $level",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -401,7 +399,7 @@ private fun SunriseSunsetCard(sunrise: Long, sunset: Long, modifier: Modifier) {
 
     DetailCard(
         icon = Icons.Outlined.WbTwilight,
-        title = "Sunrise & Sunset",
+        title = stringResource(R.string.card_title_sunrise_sunset),
         modifier = modifier
     ) {
         Text(
@@ -488,28 +486,28 @@ private fun SunArc(sunrise: Long, sunset: Long, modifier: Modifier) {
 
 @Composable
 private fun DewPointCard(dewPoint: Float, tempUnits: String, modifier: Modifier) {
+    val description = when {
+        dewPoint < 10 -> stringResource(R.string.dew_point_dry)
+        dewPoint < 16 -> stringResource(R.string.dew_point_comfortable)
+        dewPoint < 21 -> stringResource(R.string.dew_point_slightly_humid)
+        else -> stringResource(R.string.dew_point_humid)
+    }
+
     DetailCard(
         icon = Icons.Outlined.WaterDrop,
-        title = "Dew point",
-        modifier = modifier
+        title = stringResource(R.string.card_title_dew_point),
+               modifier = modifier
     ) {
         Text(
             text = "${dewPoint.toInt()}${tempUnits}",
-            style = MaterialTheme.typography.headlineLarge,
-            fontWeight = FontWeight.Medium,
-            color = MaterialTheme.colorScheme.onSurface
+             style = MaterialTheme.typography.headlineLarge,
+             fontWeight = FontWeight.Medium,
+             color = MaterialTheme.colorScheme.onSurface
         )
         Text(
-            text = remember(dewPoint) {
-                when {
-                    dewPoint < 10 -> "Dry"
-                    dewPoint < 16 -> "Comfortable"
-                    dewPoint < 21 -> "Slightly humid"
-                    else -> "Humid"
-                }
-            },
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            text = description,
+             style = MaterialTheme.typography.bodyMedium,
+             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }

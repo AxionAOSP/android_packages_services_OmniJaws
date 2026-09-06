@@ -85,4 +85,74 @@
     <string name="trans_solid">Solid</string>
     <string name="location_browse_activity_title">Select location</string>
     <string name="location_query_hint">Search for a location</string>
+    <string name="search_location_title">Search location</string>
+    <string name="weather_settings_title">Weather settings</string>
+    <string name="enable_weather_service_title">Enable weather service</string>
+    <string name="general_title">General</string>
+    <string name="weather_provider_title">Weather provider</string>
+    <string name="temperature_unit_title">Temperature unit</string>
+    <string name="last_update_title">Last update</string>
+    <string name="never_summary">Never</string>
+    <string name="location_group_title">Location</string>
+    <string name="custom_location_summary">Use a manually selected location</string>
+    <string name="location_title">Location</string>
+    <string name="location_summary_not_set">Not set</string>
+    <string name="grant_permission_title">Grant location permission</string>
+    <string name="grant_permission_summary">Required for automatic location</string>
+    <!-- Appearance Group -->
+    <string name="appearance_group_title">Appearance</string>
+    <string name="icon_pack_title">Icon pack</string>
+
+    <!-- Icon Theme Options -->
+    <string name="icon_theme_system">Follow system</string>
+    <string name="icon_theme_light">Light</string>
+    <string name="icon_theme_dark">Dark</string>
+    <!-- API Group -->
+    <string name="api_group_title">API</string>
+    <string name="owm_api_key_title">OpenWeatherMap API key</string>
+    <string name="not_set">Not set</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="feels_like">Feels like</string>
+    <!-- UV Index Levels -->
+    <string name="uv_index_low">Low</string>
+    <string name="uv_index_moderate">Moderate</string>
+    <string name="uv_index_high">High</string>
+    <string name="uv_index_very_high">Very High</string>
+    <string name="uv_index_extreme">Extreme</string>
+    <string name="uv_index">UV Index</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind">Wind</string>
+    <string name="pressure_title">Pressure</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="visibility_clear">Clear</string>
+    <string name="visibility_good">Good</string>
+    <string name="visibility_moderate">Moderate</string>
+    <string name="visibility_poor">Poor</string>
+    <string name="visibility_title">Visibility</string>
+    <string name="visibility_unit">km</string>
+    <string name="card_title_sunrise_sunset">Sunrise &amp; Sunset</string>
+    <string name="card_title_dew_point">Dew point</string>
+    <string name="dew_point_dry">Dry</string>
+    <string name="dew_point_comfortable">Comfortable</string>
+    <string name="dew_point_slightly_humid">Slightly humid</string>
+    <string name="dew_point_humid">Humid</string>
+    <string name="temperature_unit_celsius">°C</string>
+    <string name="temperature_unit_fahrenheit">°F</string>
+    <string name="hourly_forecast">Hourly forecast</string>
+    <string name="daily_forecast">Daily forecast</string>
+    <string name="search_city_placeholder">City name</string>
+    <string name="weather_unavailable">Weather data unavailable</string>
+    <string name="check_settings_or_refresh">Check settings or try refreshing</string>
+    <string name="refresh">Refresh</string>
+    <string name="settings">Settings</string>
+    <string name="weather">Weather</string>
+    <string name="location">Location</string>
+    <string name="weather_data_provided_by">Weather data provided by %s</string>
+    <string name="menu">Menu</string>
+    <string name="low">Low</string>
+    <string name="high">High</string>
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
+    <string name="today">Today</string>
 </resources>
